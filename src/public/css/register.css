@@ -1,0 +1,62 @@
+main {
+    padding-bottom: 75px;
+    background-color: #F1ECE7;
+}
+
+.register-form {
+    max-width: 736px;
+    margin: 0 auto;
+    padding: 75px 150px;
+    background-color: #fff;
+    border: 1px solid #C5B9B0;
+    border-radius: 10px;
+}
+
+.register-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-content__item {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.register-content__item-title {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.register-content__item-input input {
+    width: 100%;
+    height: 55px;
+    padding: 14px;
+    background-color: #F4F4F4;
+    border: none;
+    font-size: 14px;
+    color: #8B7969;
+}
+
+.register-content__item-input input::placeholder {
+    color: #BEB1A6;
+}
+
+.error-message {
+    color: red;
+}
+
+.register-content__button {
+    width: 160px;
+    margin: 25px auto 0;
+}
+
+.register-content__button-submit {
+    width: 100%;
+    height: auto;
+    padding: 10px 40px;
+    background-color: #82756A;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}

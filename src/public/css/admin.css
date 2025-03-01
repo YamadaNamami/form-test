@@ -1,0 +1,259 @@
+.admin-content {
+    max-width: 1183px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.search-form__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 88%;
+}
+
+.search-form__item {
+    width: fit-content;
+    height: 50px;
+}
+
+.search-form__item-input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #E3DED9;
+    padding: 5px 20px;
+}
+
+.search-form__item-input--name {
+    width: 347px;
+    background-color: #FBFBFB;
+    color: #8B7969;
+}
+
+.search-form__item-input--date {
+    position: relative;
+    width: 148px;
+    background-color: #F4F4F4;
+    font-size: 17px;
+    color: #8B7969;
+    appearance: none;
+}
+
+.search-form__item-input--date::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    background: transparent;
+    cursor: pointer;
+}
+
+.search-form__item-input--date::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border-style: solid;
+    border-color: #e0dfde transparent transparent transparent;
+    border-width: 20px 8.5px 0px 8.5px;
+    pointer-events: none;
+}
+
+.search-form__item--select {
+    position: relative;
+}
+
+.search-form__item--select::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border-style: solid;
+    border-color: #e0dfde transparent transparent transparent;
+    border-width: 20px 8.5px 0px 8.5px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.search-form__item-select {
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    border: 1px solid #E3DED9;
+    background-color: #F4F4F4;
+    padding: 5px 20px;
+    font-size: 17px;
+    color: #8B7969;
+    cursor: pointer;
+}
+
+.search-form__item-select--gender {
+    position: relative;
+    width: 102px;
+    appearance: none;
+}
+
+.search-form__item-select--category {
+    position: relative;
+    width: 223px;
+}
+
+.search-form__button {
+    width: 102px;
+    height: 50px;
+}
+
+.search-form__button-submit {
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    color: #fff;
+    border: 1px solid #8B7969;
+    background-color: #82756A;
+    cursor: pointer;
+}
+
+.reset-form {
+    width: 10%;
+    text-align: right;
+}
+
+.reset-form__button {
+    width: 102px;
+    height: 50px;
+}
+
+.reset-form__button-submit {
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    color: #fff;
+    border: 1px solid #D9C6B5;
+    background-color: #D9C6B5;
+    cursor: pointer;
+}
+
+.admin-content__sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 40px auto 20px;
+}
+
+.export-form__button {
+    width: 148px;
+    height: 39px;
+}
+
+.export-form__button-submit {
+    width: 100%;
+    height: 100%;
+    background-color: #E1DBD699;
+    border: none;
+    font-size: 18px;
+    color: #8B7969;
+    cursor: pointer;
+}
+
+/* ページネーション */
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 219px;
+    height: 31px;
+}
+
+.contact-list {
+    width: 100%;
+}
+
+.contact-form__table-row {
+    height: 59px;
+    border-bottom: 1px solid #E0DFDE;
+}
+
+.contact-form__table-row:first-of-type {
+    background-color: #8B7969;
+}
+
+.contact-form__table-header {
+    font-family: "Inika";
+    font-size: 20px;
+    color: #fff;
+    padding: 3px 20px;
+    text-align: left;
+}
+
+.contact-form__table-header--name {
+    width: 20%;
+}
+
+.contact-form__table-header--gender {
+    width: 10%;
+}
+
+.contact-form__table-header--email {
+    width: 20%;
+}
+
+.contact-form__table-header--category {
+    width: 50%;
+}
+
+/* td width*/
+.contact-form__table-detail--name {
+    width: 20%;
+}
+
+.contact-form__table-detail--gender {
+    width: 10%;
+}
+
+.contact-form__table-detail--email {
+    width: 20%;
+}
+
+.contact-form__table-detail--category {
+    width: 50%;
+}
+
+.contact-form__table-detail input {
+    width: 100%;
+    font-family: "Inika";
+    font-size: 20px;
+    color: #8B7969;
+    padding: 3px 20px;
+    text-align: left;
+    border: none;
+    pointer-events: none;
+}
+
+.contact-form__button-submit {
+    width: 76px;
+    height: 39px;
+    border: 1px solid #D9C6B599;
+    background-color: #F4F4F44D;
+    font-size: 18px;
+    color: #D9C6B5;
+    cursor: pointer;
+    margin-right: 37px;
+}
