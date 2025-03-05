@@ -66,7 +66,7 @@
 
 ## ER 図
 
-<img src="form-test/UR.png">
+<img src="UR.png">
 
 ## URL
 

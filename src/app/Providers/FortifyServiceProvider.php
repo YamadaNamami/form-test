@@ -33,7 +33,7 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->instance(LogoutResponse::class, new class implements LogoutResponse {
             public function toResponse($request)
             {
-                return redirect('/login');
+                return view('/login');
             }
         });
     }
@@ -43,7 +43,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Fortify::createUsersUsing(RegisterController::class);
+        Fortify::createUsersUsing(CreateNewUser::class);
 
         Fortify::registerView(function () {
             return view('auth.register');
@@ -53,24 +53,22 @@ class FortifyServiceProvider extends ServiceProvider
             return view('auth.login');
         });
 
-        // RateLimiter::for('login', function (Request $request) {
-        //     $email = (string) $request->email;
-        //     return Limit::perMinute(10)->by($email . $request->ip());
-        // });
+        Fortify::authenticateUsing(function (\Laravel\Fortify\Http\Requests\LoginRequest $request) {
+            $validated = $request->validate([
+                'email' => ['required','email'],
+                'password' => ['required'],
+            ], [
+                'email.required' => 'メールアドレスを入力してください',
+                'email.email' => 'メールアドレスは「ユーザー名@ドメイン」形式で入力してください',
+                'password.required' => 'パスワードを入力してください',
+            ]);
 
-        $this->app->singleton(FortifyLoginRequest::class, function ($app) {
-            return $app->make(LoginRequest::class);
+            if (Auth::attempt($validated)) {
+                return Auth::user();
+            }
+
+            return null;
         });
-
-        // Fortify::authenticateUsing(function (LoginRequest $request) {
-        //     $user = User::where('email', $request->email)->first();
-
-        //     if (
-        //         $user &&
-        //         Hash::check($request->password, $user->password)
-        //     ) {
-        //         return $user;
-        //     }
-        // });
     }
+
 }

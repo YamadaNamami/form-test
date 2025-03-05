@@ -23,8 +23,6 @@ Route::post('/', [ContactController::class, 'confirm']);
 
 Route::post('/confirm', [ConfirmController::class, 'store']);
 
-Route::post('register',[RegisterController::class,'store']);
-
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);
 });
