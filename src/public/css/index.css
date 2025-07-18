@@ -168,11 +168,6 @@
     width: 50%;
 }
 
-.error-message__content--tel{
-    width:10rem;
-    margin: 0 2%;
-}
-
 .contact-form__button {
     margin: 50px auto;
     text-align: center;

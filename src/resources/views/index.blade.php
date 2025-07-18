@@ -12,29 +12,6 @@
 <div class="contact-form__content">
     <form action="/" method="post" class="contact-form" novalidate>
         @csrf
-        <!-- <div class="contact-form__group">
-            <div class="contact-form__group-title">
-                <label for="name">
-                    <span class="contact-form__item-title">お名前</span>
-                    <span class="contact-form__item-title--required">※</span>
-                </label>
-            </div>
-            <div class="contact-form__group-content contact-form__input-name">
-                <div class="contact-form__input-content--column">
-                    <input type="text" name="last_name" id="name" class="contact-form__item-input" placeholder="例: 山田" value="{{ old('last_name') }}">
-                    @error('last_name')
-                    <div class="error-message">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="contact-form__input-content--column">
-                    <input type="text" name="first_name" class="contact-form__item-input" placeholder="例: 太郎" value="{{ old('first_name') }}">
-                    @error('first_name')
-                    <div class="error-message">{{ $message }}</div>
-                    @enderror
-                </div>
-            </div>
-        </div> -->
-
         <div class="contact-form__group">
             <div class="contact-form__group-title">
                 <label for="name">
@@ -135,22 +112,22 @@
                 </div>
             </div>
         </div>
-        @if($errors->has('tel1')||$errors->has('tel2')||$errors->has('tel3'))
+        @if($errors->has('tel1'))
         <div class="error-message__content">
             <div class="error-message__content--tel">
-                @if($errors->has('tel1'))
                 {{ $errors->first('tel1') }}
-                @endif
             </div>
+        </div>
+        @elseif($errors->has('tel2'))
+        <div class="error-message__content">
             <div class="error-message__content--tel">
-                @if($errors->has('tel2'))
-                {{  $errors->first('tel2') }}
-                @endif
+                {{ $errors->first('tel2') }}
             </div>
+        </div>
+        @else
+        <div class="error-message__content">
             <div class="error-message__content--tel">
-                @if($errors->has('tel3'))
-                {{  $errors->first('tel3') }}
-                @endif
+                {{ $errors->first('tel3') }}
             </div>
         </div>
         @endif

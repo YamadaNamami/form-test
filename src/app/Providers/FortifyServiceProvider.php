@@ -7,9 +7,12 @@ use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Http\Controllers\LoginController;
+use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Requests\LoginRequest;
 use Laravel\Fortify\Contracts\LogoutResponse;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use Laravel\Fortify\Contracts\RegisterResponse;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
@@ -36,6 +39,16 @@ class FortifyServiceProvider extends ServiceProvider
                 return redirect('login');
             }
         });
+
+        //ユーザ登録処理とログイン処理をカスタマイズしたクラスにバインドする（向き先変更）
+        $bindings = [
+            RegisteredUserController::class => RegisterController::class,
+            AuthenticatedSessionController::class => LoginController::class
+        ];
+
+        foreach($bindings as $abstract => $concrete){
+            $this->app->singleton($abstract, $concrete);
+        }
     }
 
     /**
@@ -53,22 +66,6 @@ class FortifyServiceProvider extends ServiceProvider
             return view('auth.login');
         });
 
-        Fortify::authenticateUsing(function (\Laravel\Fortify\Http\Requests\LoginRequest $request) {
-            $validated = $request->validate([
-                'email' => ['required','email'],
-                'password' => ['required'],
-            ], [
-                'email.required' => 'メールアドレスを入力してください',
-                'email.email' => 'メールアドレスは「ユーザー名@ドメイン」形式で入力してください',
-                'password.required' => 'パスワードを入力してください',
-            ]);
-
-            if (Auth::attempt($validated)) {
-                return Auth::user();
-            }
-
-            return null;
-        });
     }
 
 }

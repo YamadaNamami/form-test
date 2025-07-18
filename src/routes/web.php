@@ -25,6 +25,8 @@ Route::post('/confirm', [ConfirmController::class, 'store']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin/search', [AdminController::class, 'search']);
+    Route::post('/admin/export', [AdminController::class, 'export']);
+    Route::get('/admin/detail', [AdminController::class, 'detail']);
+    Route::delete('/admin/delete', [AdminController::class, 'destroy']);
 });
-
-Route::get('/admin/search', [AdminController::class, 'search']);
